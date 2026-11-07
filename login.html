@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Inicia sesión en CampuShare con tu correo institucional.">
+  <title>Iniciar sesión | CampuShare</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="login-page">
+  <!-- icons:start --><svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></symbol><symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5.5h16v10.5H9l-5 4z"/></symbol><symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 17V11a6 6 0 0 1 12 0v6l1.5 1.5h-15z"/><path d="M10 21h4"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.8z"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.5c0 4.6-3.1 8.2-7.5 9.5-4.4-1.3-7.5-4.9-7.5-9.5V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol><symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5z"/><path d="M12 6.5v13"/></symbol><symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol><symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol><symbol id="i-swap" viewBox="0 0 24 24"><path d="M7 4 3.5 7.5 7 11M3.5 7.5H17M17 13l3.5 3.5L17 20M20.5 16.5H7"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol><symbol id="i-send" viewBox="0 0 24 24"><path d="M4.5 12 20 4.5 15.5 19.5 12 13z"/><path d="M12 13 20 4.5"/></symbol><symbol id="i-camera" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2.5"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8.5 7 10 4.5h4L15.5 7"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h.01"/></symbol><symbol id="i-block" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></symbol><symbol id="i-edit" viewBox="0 0 24 24"><path d="M5 19h3.5L18.5 9 15 5.5 5 15.5z"/></symbol><symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol><symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></symbol><symbol id="i-trash" viewBox="0 0 24 24"><path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12"/></symbol><symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="12" r="3.5"/><path d="M11.5 12H20M17 12v3"/></symbol><symbol id="i-photo" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 16l4.5-4.5 4 4 2.5-2.5L20 18"/><circle cx="15.5" cy="9.5" r="1.5"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5.5M12 16.2h.01"/></symbol><symbol id="i-logout" viewBox="0 0 24 24"><path d="M10 5H5v14h5M14 8l4 4-4 4M18 12H9"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11 12 4.5 20 11v9h-5.5v-5.5h-5V20H4z"/></symbol></svg><!-- icons:end -->
+  <a class="skip-link" href="#login-form">Saltar al formulario</a>
+
+  <main class="login">
+    <!-- Brand panel -->
+    <section class="login__brand" aria-labelledby="brand-title">
+      <a class="logo login__logo" href="index.html" aria-label="CampuShare, volver al inicio">
+        <img src="assets/img/isotipo.svg" alt="" width="36" height="36">
+        <span>Campu<span class="logo__accent">Share</span></span>
+      </a>
+      <div class="login__brand-body">
+        <h1 class="login__brand-title" id="brand-title">Presta, pide o dona materiales académicos en tu campus</h1>
+        <p class="login__brand-lead">Calculadoras, libros y equipos de laboratorio de otros estudiantes de tu universidad.</p>
+        <ul class="login__benefits">
+          <li>
+            <span class="login__benefit-icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg></span>
+            <span><strong>Solo estudiantes verificados</strong><br>Ingresas con tu correo institucional.</span>
+          </li>
+          <li>
+            <span class="login__benefit-icon"><svg class="icon" aria-hidden="true"><use href="#i-star"></use></svg></span>
+            <span><strong>Reputación visible</strong><br>Calificaciones después de cada préstamo.</span>
+          </li>
+          <li>
+            <span class="login__benefit-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg></span>
+            <span><strong>Entregas seguras</strong><br>Puntos de entrega dentro del campus.</span>
+          </li>
+        </ul>
+      </div>
+      <p class="login__brand-note">78% de los estudiantes encuestados prestaría si la cuenta se verifica con correo institucional.</p>
+    </section>
+
+    <!-- Login form (HU001) -->
+    <section class="login__panel" aria-labelledby="login-title">
+      <form class="login-form" id="login-form" novalidate>
+        <h2 class="login-form__title" id="login-title">Inicia sesión</h2>
+        <p class="login-form__lead">Usa tu correo institucional. No necesitas crear otra cuenta.</p>
+
+        <div class="field" id="email-field">
+          <label class="field__label" for="email">Correo institucional</label>
+          <div class="field__control">
+            <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="username" placeholder="u202312345@upc.edu.pe" required aria-describedby="email-hint">
+            <svg class="icon field__status" aria-hidden="true"><use href="#i-check"></use></svg>
+          </div>
+          <p class="field__hint" id="email-hint" aria-live="polite">Ejemplo: u202312345@upc.edu.pe</p>
+        </div>
+
+        <div class="field" id="password-field">
+          <label class="field__label" for="password">Contraseña</label>
+          <div class="field__control">
+            <svg class="icon" aria-hidden="true"><use href="#i-lock"></use></svg>
+            <input id="password" name="password" type="password" autocomplete="current-password" minlength="6" required aria-describedby="password-hint">
+            <button class="field__action" type="button" id="toggle-password" aria-label="Mostrar contraseña" aria-pressed="false">
+              <svg class="icon" aria-hidden="true"><use href="#i-eye"></use></svg>
+            </button>
+          </div>
+          <p class="field__hint" id="password-hint" aria-live="polite">Mínimo 6 caracteres.</p>
+        </div>
+
+        <div class="login-form__row">
+          <label class="checkbox">
+            <input type="checkbox" name="remember" checked>
+            <span>Recordarme</span>
+          </label>
+          <a href="#forgot" id="forgot-link">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <button class="btn btn--primary btn--block btn--lg" type="submit">Ingresar</button>
+
+        <div class="notice notice--neutral">
+          <svg class="icon notice__icon notice__icon--ok" aria-hidden="true"><use href="#i-shield"></use></svg>
+          <p>Solo estudiantes con correo universitario vigente pueden entrar. Tu cuenta se activa en tu primer ingreso.</p>
+        </div>
+
+        <p class="login-form__demo">
+          <strong>Modo demo:</strong> no hay registro real. Usa cualquier correo que termine en <code>.edu.pe</code> y una contraseña de 6 caracteres o más.
+        </p>
+        <p class="login-form__legal"><a href="index.html#legal">Términos de uso</a> · <a href="index.html#legal">Política de privacidad</a></p>
+      </form>
+    </section>
+  </main>
+
+  <div class="toast-region" id="toast-region" role="status" aria-live="polite"></div>
+  <script src="assets/js/login.js"></script>
+</body>
+</html>

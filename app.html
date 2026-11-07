@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Demo funcional de CampuShare: catálogo, publicación, préstamos y chat entre estudiantes.">
+  <title>Demo CampuShare | Catálogo de materiales</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="app-page">
+  <!-- icons:start --><svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></symbol><symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5.5h16v10.5H9l-5 4z"/></symbol><symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 17V11a6 6 0 0 1 12 0v6l1.5 1.5h-15z"/><path d="M10 21h4"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.8z"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.5c0 4.6-3.1 8.2-7.5 9.5-4.4-1.3-7.5-4.9-7.5-9.5V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol><symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5z"/><path d="M12 6.5v13"/></symbol><symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol><symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol><symbol id="i-swap" viewBox="0 0 24 24"><path d="M7 4 3.5 7.5 7 11M3.5 7.5H17M17 13l3.5 3.5L17 20M20.5 16.5H7"/></symbol><symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol><symbol id="i-send" viewBox="0 0 24 24"><path d="M4.5 12 20 4.5 15.5 19.5 12 13z"/><path d="M12 13 20 4.5"/></symbol><symbol id="i-camera" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2.5"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8.5 7 10 4.5h4L15.5 7"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h.01"/></symbol><symbol id="i-block" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/></symbol><symbol id="i-edit" viewBox="0 0 24 24"><path d="M5 19h3.5L18.5 9 15 5.5 5 15.5z"/></symbol><symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol><symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></symbol><symbol id="i-trash" viewBox="0 0 24 24"><path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12"/></symbol><symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="12" r="3.5"/><path d="M11.5 12H20M17 12v3"/></symbol><symbol id="i-photo" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 16l4.5-4.5 4 4 2.5-2.5L20 18"/><circle cx="15.5" cy="9.5" r="1.5"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5.5M12 16.2h.01"/></symbol><symbol id="i-logout" viewBox="0 0 24 24"><path d="M10 5H5v14h5M14 8l4 4-4 4M18 12H9"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11 12 4.5 20 11v9h-5.5v-5.5h-5V20H4z"/></symbol></svg><!-- icons:end -->
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+
+  <!-- App header (logged-in user) -->
+  <header class="app-header">
+    <div class="container app-header__inner">
+      <a class="logo" href="index.html" aria-label="CampuShare, volver a la página principal">
+        <img src="assets/img/isotipo.svg" alt="" width="36" height="36">
+        <span>Campu<span class="logo__accent">Share</span></span>
+      </a>
+
+      <nav class="app-nav" aria-label="Secciones de la demo">
+        <a class="app-nav__link" href="#catalog" data-nav="catalog">Catálogo</a>
+        <a class="app-nav__link" href="#publish" data-nav="publish">Publicar</a>
+        <a class="app-nav__link" href="#loans" data-nav="loans">Mis préstamos</a>
+        <a class="app-nav__link" href="#chat" data-nav="chat">Chat <span class="count-badge" data-unread-count hidden></span></a>
+      </nav>
+
+      <div class="app-header__actions">
+        <div class="popover-anchor">
+          <button class="icon-btn" type="button" id="bell-button" aria-haspopup="true" aria-expanded="false" aria-controls="notifications">
+            <svg class="icon" aria-hidden="true"><use href="#i-bell"></use></svg>
+            <span class="icon-btn__dot" id="bell-dot" hidden></span>
+            <span class="visually-hidden" id="bell-label">Notificaciones</span>
+          </button>
+          <section class="popover" id="notifications" aria-labelledby="notifications-title" hidden>
+            <div class="popover__header">
+              <h2 class="popover__title" id="notifications-title">Notificaciones</h2>
+              <button class="link-btn" type="button" id="notifications-clear">Marcar como leídas</button>
+            </div>
+            <ul class="notification-list" id="notification-list"></ul>
+          </section>
+        </div>
+        <div class="popover-anchor">
+          <button class="avatar-btn" type="button" id="profile-button" aria-haspopup="true" aria-expanded="false" aria-controls="profile-menu">
+            <span class="avatar" id="my-initials" aria-hidden="true">LA</span>
+            <span class="visually-hidden">Menú de perfil</span>
+          </button>
+          <div class="popover popover--menu" id="profile-menu" hidden>
+            <p class="popover__user"><strong id="my-name">Estudiante</strong><span id="my-email">u202312345@upc.edu.pe</span></p>
+            <button class="menu-item" type="button" id="my-profile-button"><svg class="icon" aria-hidden="true"><use href="#i-user"></use></svg>Mi reputación</button>
+            <a class="menu-item" href="index.html" id="logout-link"><svg class="icon" aria-hidden="true"><use href="#i-logout"></use></svg>Cerrar sesión</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="app-main">
+    <!-- ===================== V1 Catalog (HU010, HU011, HU013, HU029, HU030, HU032) ===================== -->
+    <section class="view container" id="view-catalog" data-view="catalog" aria-labelledby="catalog-title">
+      <div class="view__header">
+        <div>
+          <h1 class="view__title" id="catalog-title">Catálogo de materiales</h1>
+          <p class="view__subtitle" id="catalog-subtitle">Materiales publicados por estudiantes de tu universidad</p>
+        </div>
+        <label class="inline-select">
+          <svg class="icon icon--sm" aria-hidden="true"><use href="#i-pin"></use></svg>
+          <span>Tu sede</span>
+          <select class="select" id="my-campus">
+            <option>Monterrico</option>
+            <option>San Isidro</option>
+            <option>Villa</option>
+            <option>San Miguel</option>
+          </select>
+        </label>
+      </div>
+
+      <form class="search" id="catalog-search" role="search" autocomplete="off">
+        <div class="search__box">
+          <svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg>
+          <label class="visually-hidden" for="catalog-query">Buscar por nombre o código del curso, material o punto de recojo</label>
+          <input class="search__input" id="catalog-query" type="search" placeholder="Curso, código (MA262) o material"
+                 role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="suggestions" aria-describedby="search-help">
+          <button class="btn btn--primary" type="submit">Buscar</button>
+        </div>
+        <p class="visually-hidden" id="search-help">Escribe al menos dos caracteres para ver sugerencias. Usa las flechas para elegir una.</p>
+        <ul class="suggestions" id="suggestions" role="listbox" aria-label="Sugerencias" hidden></ul>
+      </form>
+
+      <div class="catalog-layout">
+        <aside class="filters" id="filters" aria-labelledby="filters-title">
+          <button class="btn btn--secondary btn--sm filters__toggle" type="button" id="filters-toggle" aria-expanded="false" aria-controls="filters-panel">
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#i-filter"></use></svg>
+            Filtros <span class="count-badge" id="filters-count" hidden></span>
+          </button>
+          <div class="filters__panel" id="filters-panel">
+            <h2 class="filters__title" id="filters-title"><svg class="icon" aria-hidden="true"><use href="#i-filter"></use></svg>Filtros</h2>
+
+            <label class="switch">
+              <input type="checkbox" id="only-available" checked>
+              <span class="switch__track" aria-hidden="true"></span>
+              <span>Solo disponibles</span>
+            </label>
+
+            <fieldset class="filters__group">
+              <legend>Facultad</legend>
+              <div id="filter-faculty"></div>
+            </fieldset>
+            <fieldset class="filters__group">
+              <legend>Tipo de material</legend>
+              <div id="filter-category"></div>
+            </fieldset>
+            <fieldset class="filters__group">
+              <legend>Sede</legend>
+              <div id="filter-campus"></div>
+            </fieldset>
+
+            <div class="filters__group">
+              <p class="filters__legend">Cercanía</p>
+              <ul class="legend-list">
+                <li><span class="proximity proximity--near">Misma sede</span></li>
+                <li><span class="proximity proximity--mid">Sede cercana</span></li>
+                <li><span class="proximity proximity--far">Otra sede</span></li>
+              </ul>
+            </div>
+            <button class="btn btn--ghost btn--sm" type="button" id="filters-reset">Limpiar filtros</button>
+          </div>
+        </aside>
+
+        <div class="results">
+          <div class="results__bar">
+            <h2 class="results__title" id="results-title">Todos los materiales</h2>
+            <p class="results__count" id="results-count" aria-live="polite"></p>
+            <label class="inline-select">
+              <span class="visually-hidden">Ordenar resultados</span>
+              <select class="select" id="sort-select">
+                <option value="near">Ordenar: más cercanos</option>
+                <option value="rating">Ordenar: mejor calificados</option>
+                <option value="title">Ordenar: nombre (A-Z)</option>
+              </select>
+            </label>
+          </div>
+          <ul class="results__grid" id="results-grid" aria-labelledby="results-title"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== V4 Publish (HU006, HU007, HU008, HU009) ===================== -->
+    <section class="view container" id="view-publish" data-view="publish" aria-labelledby="publish-title" hidden>
+      <div class="view__header">
+        <div>
+          <h1 class="view__title" id="publish-title">Publicar un material</h1>
+          <p class="view__subtitle">Tres pasos y menos de un minuto</p>
+        </div>
+      </div>
+
+      <div class="publish-layout">
+        <form class="card publish-form" id="publish-form" novalidate>
+          <ol class="stepper" aria-label="Pasos de la publicación">
+            <li class="stepper__step" data-step-indicator="1"><span class="stepper__dot">1</span><span class="stepper__label">Foto y datos</span></li>
+            <li class="stepper__step" data-step-indicator="2"><span class="stepper__dot">2</span><span class="stepper__label">Modalidad y estado</span></li>
+            <li class="stepper__step" data-step-indicator="3"><span class="stepper__dot">3</span><span class="stepper__label">Entrega</span></li>
+          </ol>
+
+          <!-- Step 1 -->
+          <fieldset class="publish-step" data-step="1">
+            <legend class="publish-step__title">Foto y datos del material</legend>
+            <div class="photo-picker">
+              <label class="photo-picker__drop" for="pub-photo">
+                <img id="pub-photo-preview" src="assets/img/isotipo.svg" alt="Vista previa de la foto del material" hidden>
+                <span class="photo-picker__placeholder" id="pub-photo-placeholder">
+                  <svg class="icon icon--lg" aria-hidden="true"><use href="#i-camera"></use></svg>
+                  <span><strong>Sube una foto</strong><br>JPG o PNG, se usará para comparar el estado en la devolución</span>
+                </span>
+              </label>
+              <input class="visually-hidden" type="file" id="pub-photo" accept="image/*" aria-describedby="pub-photo-error">
+              <p class="field__error" id="pub-photo-error"></p>
+            </div>
+            <div class="form-grid">
+              <div class="form-field form-field--full">
+                <label for="pub-title">Nombre del material</label>
+                <input id="pub-title" type="text" placeholder="Ej. Calculadora Casio fx-991" required aria-describedby="pub-title-error">
+                <p class="field__error" id="pub-title-error"></p>
+              </div>
+              <div class="form-field">
+                <label for="pub-course">Curso asociado</label>
+                <input id="pub-course" type="text" list="course-options" placeholder="Ej. Cálculo I" required aria-describedby="pub-course-error">
+                <datalist id="course-options"></datalist>
+                <p class="field__error" id="pub-course-error"></p>
+              </div>
+              <div class="form-field">
+                <label for="pub-category">Tipo de material</label>
+                <select id="pub-category" class="input-select">
+                  <option>Libros</option>
+                  <option>Calculadoras</option>
+                  <option>Laboratorio</option>
+                  <option>Dibujo</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Step 2 -->
+          <fieldset class="publish-step" data-step="2" hidden>
+            <legend class="publish-step__title">¿Cómo quieres compartirlo?</legend>
+            <div class="option-cards" role="radiogroup" aria-label="Modalidad">
+              <label class="option-card">
+                <input type="radio" name="modality" value="loan" checked>
+                <span class="option-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg></span>
+                <span class="option-card__title">Préstamo</span>
+                <span class="option-card__text">Lo recuperas al final</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="modality" value="donation">
+                <span class="option-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-heart"></use></svg></span>
+                <span class="option-card__title">Donación</span>
+                <span class="option-card__text">Lo regalas a otro estudiante</span>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="modality" value="exchange">
+                <span class="option-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-swap"></use></svg></span>
+                <span class="option-card__title">Intercambio</span>
+                <span class="option-card__text">Lo cambias por otro material</span>
+              </label>
+            </div>
+
+            <div class="modality-fields" data-modality-field="loan">
+              <div class="form-field">
+                <label for="pub-max-days">Plazo máximo de préstamo</label>
+                <select id="pub-max-days" class="input-select">
+                  <option value="15">15 días</option>
+                  <option value="30">30 días</option>
+                  <option value="45">45 días</option>
+                  <option value="60" selected>60 días</option>
+                </select>
+              </div>
+            </div>
+            <div class="modality-fields" data-modality-field="exchange" hidden>
+              <div class="form-field">
+                <label for="pub-wanted">¿Qué te gustaría recibir a cambio?</label>
+                <input id="pub-wanted" type="text" placeholder="Ej. Formulario de integrales" aria-describedby="pub-wanted-error">
+                <p class="field__error" id="pub-wanted-error"></p>
+              </div>
+            </div>
+            <div class="modality-fields" data-modality-field="donation" hidden>
+              <p class="notice notice--ok"><svg class="icon notice__icon" aria-hidden="true"><use href="#i-heart"></use></svg>Las donaciones no tienen plazo de devolución. ¡Gracias por compartir!</p>
+            </div>
+
+            <h3 class="publish-step__subtitle">Estado del material</h3>
+            <div class="radio-list" role="radiogroup" aria-label="Estado del material">
+              <label class="radio-row"><input type="radio" name="condition" value="Nuevo"><span><strong>Nuevo</strong><small>Sin uso</small></span></label>
+              <label class="radio-row"><input type="radio" name="condition" value="Buen estado" checked><span><strong>Buen estado</strong><small>Uso leve, sin daños</small></span></label>
+              <label class="radio-row"><input type="radio" name="condition" value="Con desgaste"><span><strong>Con desgaste</strong><small>Funciona, con marcas de uso</small></span></label>
+            </div>
+            <div class="form-field">
+              <label for="pub-description">Descripción (opcional)</label>
+              <textarea id="pub-description" rows="3" placeholder="Cuenta qué incluye y cualquier detalle importante."></textarea>
+            </div>
+          </fieldset>
+
+          <!-- Step 3 -->
+          <fieldset class="publish-step" data-step="3" hidden>
+            <legend class="publish-step__title">Puntos seguros de entrega</legend>
+            <p class="publish-step__help">Elige dónde puedes entregar el material. Solo mostramos puntos señalizados de tu sede.</p>
+            <div class="check-list" id="pub-points" aria-describedby="pub-points-error"></div>
+            <p class="field__error" id="pub-points-error"></p>
+            <div class="form-field">
+              <label for="pub-until">Disponible hasta</label>
+              <input id="pub-until" type="date" required aria-describedby="pub-until-error">
+              <p class="field__error" id="pub-until-error"></p>
+            </div>
+            <div class="summary" id="pub-summary" aria-live="polite"></div>
+          </fieldset>
+
+          <div class="publish-form__actions">
+            <button class="btn btn--secondary" type="button" id="pub-back">Atrás</button>
+            <button class="btn btn--primary" type="button" id="pub-next">Continuar</button>
+            <button class="btn btn--cta" type="submit" id="pub-submit" hidden>Publicar material</button>
+          </div>
+        </form>
+
+        <section class="card my-publications" aria-labelledby="my-pubs-title">
+          <h2 class="card__title" id="my-pubs-title">Mis publicaciones</h2>
+          <ul class="pub-list" id="pub-list"></ul>
+        </section>
+      </div>
+    </section>
+
+    <!-- ===================== V5 Loans (HU015, HU018, HU019, HU020, HU024, HU041, HU042, HU043) ===================== -->
+    <section class="view container" id="view-loans" data-view="loans" aria-labelledby="loans-title" hidden>
+      <div class="view__header">
+        <div>
+          <h1 class="view__title" id="loans-title">Mis préstamos</h1>
+          <p class="view__subtitle" id="loans-summary"></p>
+        </div>
+      </div>
+
+      <ul class="counters" id="counters" aria-label="Resumen de mi actividad"></ul>
+
+      <div class="reminder" id="reminder" role="alert" hidden></div>
+
+      <div class="tabs" role="tablist" aria-label="Mi actividad">
+        <button class="tabs__tab" type="button" role="tab" id="tab-active" aria-controls="panel-active" aria-selected="true">Activos <span class="count-badge" id="count-active"></span></button>
+        <button class="tabs__tab" type="button" role="tab" id="tab-sent" aria-controls="panel-sent" aria-selected="false" tabindex="-1">Mis solicitudes <span class="count-badge" id="count-sent"></span></button>
+        <button class="tabs__tab" type="button" role="tab" id="tab-received" aria-controls="panel-received" aria-selected="false" tabindex="-1">Recibidas <span class="count-badge count-badge--warn" id="count-received"></span></button>
+        <button class="tabs__tab" type="button" role="tab" id="tab-history" aria-controls="panel-history" aria-selected="false" tabindex="-1">Historial</button>
+      </div>
+
+      <div class="tab-panel" role="tabpanel" id="panel-active" aria-labelledby="tab-active" tabindex="0">
+        <h2 class="panel-title">Materiales que tengo prestados</h2>
+        <ul class="deal-list" id="borrowed-list"></ul>
+        <h2 class="panel-title">Materiales que presté</h2>
+        <ul class="deal-list" id="lent-list"></ul>
+      </div>
+      <div class="tab-panel" role="tabpanel" id="panel-sent" aria-labelledby="tab-sent" tabindex="0" hidden>
+        <ul class="deal-list" id="sent-list"></ul>
+      </div>
+      <div class="tab-panel" role="tabpanel" id="panel-received" aria-labelledby="tab-received" tabindex="0" hidden>
+        <ul class="deal-list" id="received-list"></ul>
+      </div>
+      <div class="tab-panel" role="tabpanel" id="panel-history" aria-labelledby="tab-history" tabindex="0" hidden>
+        <ul class="deal-list" id="history-list"></ul>
+      </div>
+    </section>
+
+    <!-- ===================== V6 Chat (HU038, HU039, HU040) ===================== -->
+    <section class="view container" id="view-chat" data-view="chat" aria-labelledby="chat-title" hidden>
+      <h1 class="visually-hidden" id="chat-title">Chat</h1>
+      <div class="chat" id="chat">
+        <aside class="chat__list" aria-labelledby="conversations-title">
+          <h2 class="chat__list-title" id="conversations-title">Conversaciones</h2>
+          <label class="chat__search">
+            <svg class="icon icon--sm" aria-hidden="true"><use href="#i-search"></use></svg>
+            <span class="visually-hidden">Buscar conversación</span>
+            <input type="search" id="conversation-filter" placeholder="Buscar conversación">
+          </label>
+          <ul class="conversation-list" id="conversation-list"></ul>
+        </aside>
+        <section class="chat__thread" id="chat-thread" aria-live="off"></section>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mobile tab bar -->
+  <nav class="tabbar" aria-label="Secciones de la demo">
+    <a class="tabbar__link" href="#catalog" data-nav="catalog"><svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg>Catálogo</a>
+    <a class="tabbar__link" href="#publish" data-nav="publish"><svg class="icon" aria-hidden="true"><use href="#i-plus"></use></svg>Publicar</a>
+    <a class="tabbar__link" href="#loans" data-nav="loans"><svg class="icon" aria-hidden="true"><use href="#i-swap"></use></svg>Préstamos</a>
+    <a class="tabbar__link" href="#chat" data-nav="chat"><svg class="icon" aria-hidden="true"><use href="#i-chat"></use></svg>Chat<span class="tabbar__badge" data-unread-count hidden></span></a>
+  </nav>
+
+  <!-- ===================== Dialogs ===================== -->
+  <!-- V2 Material detail (HU012, HU022, HU038, HU044, HU050) -->
+  <dialog class="modal modal--wide" id="detail-dialog" aria-labelledby="detail-title">
+    <div class="modal__header">
+      <h2 class="modal__title" id="detail-title">Detalle del material</h2>
+      <button class="icon-btn" type="button" data-close aria-label="Cerrar"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></button>
+    </div>
+    <div class="modal__body" id="detail-body"></div>
+  </dialog>
+
+  <!-- V3 Request loan (HU014, HU016, HU017) -->
+  <dialog class="modal" id="request-dialog" aria-labelledby="request-title">
+    <form method="dialog" class="modal__form" id="request-form" novalidate>
+      <div class="modal__header">
+        <h2 class="modal__title" id="request-title">Solicitar préstamo</h2>
+        <button class="icon-btn" type="button" data-close aria-label="Cerrar"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></button>
+      </div>
+      <div class="modal__body" id="request-body"></div>
+      <div class="modal__footer">
+        <button class="btn btn--secondary" type="button" data-close>Cancelar</button>
+        <button class="btn btn--primary" type="submit">Enviar solicitud</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Lender: accept request choosing safe point and time slot (HU015, HU016, HU017) -->
+  <dialog class="modal" id="accept-dialog" aria-labelledby="accept-title">
+    <form method="dialog" class="modal__form" id="accept-form" novalidate>
+      <div class="modal__header">
+        <h2 class="modal__title" id="accept-title">Aceptar solicitud</h2>
+        <button class="icon-btn" type="button" data-close aria-label="Cerrar"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></button>
+      </div>
+      <div class="modal__body" id="accept-body"></div>
+      <div class="modal__footer">
+        <button class="btn btn--secondary" type="button" data-close>Cancelar</button>
+        <button class="btn btn--primary" type="submit">Aceptar y notificar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Deal detail: safety recommendations, point, slot and delivery code (HU050) -->
+  <dialog class="modal" id="deal-dialog" aria-labelledby="deal-title">
+    <div class="modal__header">
+      <h2 class="modal__title" id="deal-title">Detalle del trato</h2>
+      <button class="icon-btn" type="button" data-close aria-label="Cerrar"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></button>
+    </div>
+    <div class="modal__body" id="deal-body"></div>
+  </dialog>
+
+  <!-- Confirm delivery with code (HU018) -->
+  <dialog class="modal" id="delivery-dialog" aria-labelledby="delivery-title">
+    <form method="dialog" class="modal__form" id="delivery-form" novalidate>
+      <div class="modal__header">
+        <h2 class="modal__title" id="delivery-title">Confirmar entrega</h2>
+        <button class="icon-btn" type="button" data-close aria-label="Cerrar"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></button>
+      </div>
+      <div class="modal__body" id="delivery-body"></div>
+      <div class="modal__footer">
+        <button class="btn btn--secondary" type="button" data-close>Cancelar</button>
+        <button class="btn btn--primary" type="submit">Confirmar entrega</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Confirm return (HU020) -->
+  <dialog class="modal" id="return-dialog" aria-labelledby="return-title">
+    <form method="dialog" class="modal__form" id="return-form" novalidate>
+      <div class="modal__header">
+        <h2 class="modal__title" id="return-title">Confirmar devolución</h2>
+        <button class="icon-btn" type="button" data-close aria-label="Cerrar"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></button>
+      </div>
+      <div class="modal__body" id="return-body"></div>
+      <div class="modal__footer">
+        <button class="btn btn--secondary" type="button" data-close>Cancelar</button>
+        <button class="btn btn--primary" type="submit">Confirmar y calificar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- V7 Rate (HU021) -->
+  <dialog class="modal modal--sheet" id="rate-dialog" aria-labelledby="rate-title">
+    <form method="dialog" class="modal__form" id="rate-form" novalidate>
+      <div class="modal__header">
+        <h2 class="modal__title" id="rate-title">Calificar</h2>
+        <button class="icon-btn" type="button" data-close aria-label="Cerrar"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></button>
+      </div>
+      <div class="modal__body" id="rate-body"></div>
+      <div class="modal__footer">
+        <button class="btn btn--primary btn--block" type="submit">Enviar calificación</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- V7 Report and block user (HU023) / report publication (HU044) -->
+  <dialog class="modal modal--sheet" id="report-dialog" aria-labelledby="report-title">
+    <form method="dialog" class="modal__form" id="report-form" novalidate>
+      <div class="modal__header">
+        <h2 class="modal__title" id="report-title">Reportar</h2>
+        <button class="icon-btn" type="button" data-close aria-label="Cerrar"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></button>
+      </div>
+      <div class="modal__body" id="report-body"></div>
+      <div class="modal__footer">
+        <button class="btn btn--secondary" type="button" data-close>Cancelar</button>
+        <button class="btn btn--danger" type="submit" id="report-submit">Enviar reporte</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- User reputation profile (HU022) -->
+  <dialog class="modal" id="profile-dialog" aria-labelledby="profile-title">
+    <div class="modal__header">
+      <h2 class="modal__title" id="profile-title">Reputación</h2>
+      <button class="icon-btn" type="button" data-close aria-label="Cerrar"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></button>
+    </div>
+    <div class="modal__body" id="profile-body"></div>
+  </dialog>
+
+  <!-- Edit publication (HU009) -->
+  <dialog class="modal" id="edit-dialog" aria-labelledby="edit-title">
+    <form method="dialog" class="modal__form" id="edit-form" novalidate>
+      <div class="modal__header">
+        <h2 class="modal__title" id="edit-title">Editar publicación</h2>
+        <button class="icon-btn" type="button" data-close aria-label="Cerrar"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></button>
+      </div>
+      <div class="modal__body" id="edit-body"></div>
+      <div class="modal__footer">
+        <button class="btn btn--secondary" type="button" data-close>Cancelar</button>
+        <button class="btn btn--primary" type="submit">Guardar cambios</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Generic confirmation (withdraw publication, cancel request) -->
+  <dialog class="modal modal--small" id="confirm-dialog" aria-labelledby="confirm-title" aria-describedby="confirm-text">
+    <form method="dialog" class="modal__form" id="confirm-form">
+      <div class="modal__header">
+        <h2 class="modal__title" id="confirm-title">¿Confirmas?</h2>
+      </div>
+      <div class="modal__body">
+        <p id="confirm-text"></p>
+      </div>
+      <div class="modal__footer">
+        <button class="btn btn--secondary" type="button" data-close>Volver</button>
+        <button class="btn btn--danger" type="submit" id="confirm-ok">Confirmar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast-region" id="toast-region" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
